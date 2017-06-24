@@ -3,6 +3,12 @@ package modules
 func Main(){
 	ProgramStructureMain()
 	TypesMain()
-	TemplateMain()
+	//TemplateMain()
 	FunctionMain()
+	MethodMain()
+	InterfaceMain()
+	GoroutineMain()
+	ConcurrencyMain()
+	ReflectMain()
+	UnsafeMain()
 }

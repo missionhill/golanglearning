@@ -161,6 +161,8 @@ func checkSlice() {
 	s = append(s, 1)
 	AssertEqual(len(s), 1)
 
+	AssertTrue([...]int{1,2,3} == [...]int{1,2,3})
+	AssertTrue([3]int{1,2,3} == [3]int{1,2,3})
 }
 
 func checkMap(){

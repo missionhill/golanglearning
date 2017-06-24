@@ -9,7 +9,7 @@ import (
 	"encoding/json"
 	"log"
 	"html/template"
-	"os"
+	//"os"
 )
 
 const IssuesURL = "https://api.github.com/search/issues"
@@ -71,15 +71,15 @@ func SearchIssues(terms []string) (*IssuesSearchResult, error) {
 }
 
 func TemplateMain(){
-	result, err := SearchIssues([]string{"repo:golang/go","is:open","json","decoder"})
+	_, err := SearchIssues([]string{"repo:golang/go","is:open","json","decoder"})
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("%d issues:\n", result.TotalCount)
-	var report = template.Must(template.New("issuelist").
+	//fmt.Printf("%d issues:\n", result.TotalCount)
+	var _ = template.Must(template.New("issuelist").
 		Funcs(template.FuncMap{"daysAgo": daysAgo}).
 		Parse(templ))
-	if err := report.Execute(os.Stdout, result); err != nil {
-		log.Fatal(err)
-	}
+	//if err := report.Execute(os.Stdout, result); err != nil {
+	//	log.Fatal(err)
+	//}
 }
